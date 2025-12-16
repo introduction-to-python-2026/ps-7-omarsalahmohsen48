@@ -1,1 +1,93 @@
+California Housing Data — EDA Report
+1. Dataset Overview
 
+The dataset contains information on census block groups in California, including housing characteristics and median house value.
+After filtering out unrealistic values (AveOccup ≥ 10, AveBedrms ≥ 10), we retained realistic residential districts only to avoid hotels or short-term rentals.
+
+Columns used in analysis:
+
+MedInc: Median household income (×10,000 USD)
+
+HouseAge: Average age of houses (years)
+
+AveRooms: Average rooms per household
+
+AveBedrms: Average bedrooms per household
+
+Population: Total population of the block group
+
+AveOccup: Average occupants per household
+
+Latitude & Longitude: Geolocation
+
+target: Median house value (×100,000 USD)
+
+2. Target Distribution
+
+The median house value ranges mostly between 0.5 and 5 (×100,000 USD).
+
+The histogram shows a right-skew, meaning a small number of very expensive houses exist.
+
+Insight: Most houses are in the moderate price range, but outliers may affect mean-based metrics.
+
+3. Median Income vs House Value
+
+Strong positive relationship: higher median income districts have higher house values.
+
+Scatter plot shows a roughly linear trend with some variance at higher income levels.
+
+Insight: Median income is the strongest predictor of house value.
+
+4. House Age vs House Value
+
+House value is slightly higher for newer houses, but not strongly linear.
+
+Older neighborhoods have more spread in house values.
+
+Insight: Age affects value, but it is less important than income or location.
+
+5. Average Rooms vs House Value
+
+House value increases with more rooms, but there are outliers (some very large homes with moderate value).
+
+Relationship is moderate, suggesting size matters but is not the only factor.
+
+6. Average Occupancy vs House Value
+
+Higher occupancy households tend to have slightly lower house values.
+
+The relationship is weak after filtering, but very crowded households are rare.
+
+7. Feature Correlations
+
+Highest positive correlations with house value:
+
+MedInc (strongest)
+
+AveRooms
+
+Moderate correlations: HouseAge, AveBedrms
+
+Weak or negative correlations: Population, AveOccup
+
+Insight: Income and number of rooms are the most predictive features.
+
+8. Geographic Distribution
+
+Coastal and northern California districts tend to have higher house values.
+
+Inland and southern districts tend to be less expensive.
+
+Insight: Location matters a lot, and latitude/longitude could be an important feature for modeling.
+
+9. Summary
+
+Median income is the most important factor.
+
+Geography (coastal vs inland) strongly influences house prices.
+
+Size (rooms) and house age have moderate impact.
+
+Filtering unrealistic values improved clarity of scatter plots.
+
+Skewed target distribution suggests models should handle outliers carefully.
